@@ -45,7 +45,61 @@
             </li>
       </ul>  
 
+      <h3>Pomóż nam się rozwijać! Wypełnij ankietę poniżej.</h3>
 
+      <form action="submit_form.php" method="POST">
+        <label for="best">Co ci się podoba w tej stronie?</label>
+        <input type="text" id="best" name="best"><br>
+
+        <label for="worst">Co ci się nie podoba w tej stronie?</label>
+        <input type="text" id="worst" name="worst"><br>
+        
+        <label for="sug">Czy masz jakieś sugestie dotyczące tej strony?</label>
+        <textarea id="sug" name="sug" maxlength="200"></textarea>
+
+        <label for="err"><br>Czy znalazłeś jakieś błędy na tej stronie?</label>
+        <textarea id="err" name="err" maxlength="200"></textarea>
+
+        <label for="lista"><br>Oceń naszą stronę 1-10:</label>
+        <select id="lista" name="lista">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        </select>
+
+        <p>Podaj swoją płeć:</p>
+        <input type="radio" id="man" name="sex" value="man">
+        <label for="man">Mężczyzna</label><br>
+
+        <input type="radio" id="woman" name="sex" value="man">
+        <label for="woman">Kobieta</label><br>
+
+        <input type="radio" id="uns" name="sex" value="unspecified">
+        <label for="uns">Nie chcę podawać</label><br>
+
+        <p>Dlaczego zdecydowałeś się nam pomóc?</p>
+        <input type="checkbox" id="A" name="A" value="A">
+        <label for="A">Zainteresowała mnie ta strona</label><br>
+
+        <input type="checkbox" id="B" name="B" value="B">
+        <label for="B">Tak po prostu</label><br>
+
+        <form action="submit_form.php" method="POST">
+            <input type="reset" value="Wyczyść">
+            <input type="submit" value="Wyślij">
+          </form>
+          
+
+
+      </form>
+      
 
     
 </body>
