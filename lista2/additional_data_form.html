@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz Dodatkowy</title>
+</head>
+<body>
+
+    <h2>Formularz Dodatkowy</h2>
+
+    <form action="#" method="post">
+
+        <!-- Ulubiony kolor -->
+        <label for="favcolor">Ulubiony kolor: </label>
+        <input type="color" id="favcolor" name="favcolor" placeholder="Wybierz kolor"><br><br>
+
+        <!-- Miesiąc i rok -->
+        <label for="bmonth">Miesiąc i rok: </label>
+        <input type="month" id="bmonth" name="bmonth" placeholder="Wybierz miesiąc i rok"><br><br>
+
+        <!-- Zakres (np. preferencje) -->
+        <label for="range">Preferencje (0-100): </label>
+        <input type="range" id="range" name="range" min="0" max="100" placeholder="Podaj zakres preferencji"><br><br>
+
+        <!-- Wartość preferencji (meter) -->
+        <meter value="70" min="0" max="100">70%</meter> <!-- Wyświetlenie poziomu preferencji --> <br><br>
+
+        <!-- Wyszukiwanie -->
+        <label for="search">Szukaj informacji: </label>
+        <input type="search" id="search" name="search" placeholder="Wpisz frazę do wyszukania"><br><br>
+
+        <!-- Strona internetowa -->
+        <label for="website">Strona internetowa: </label>
+        <input type="url" id="website" name="website" placeholder="Podaj URL np. https://example.com"><br><br>
+
+        <input type="submit" value="Wyślij">
+
+    </form>
+
+    <!-- Panel boczny z informacją -->
+    <aside>
+        <p>Wskazówka: <mark>Pola z podpowiedziami</mark> pomogą Ci szybciej wypełnić formularz.</p>
+    </aside>
+
+    <!-- Szczegóły formularza w elemencie details/summary -->
+    <details>
+        <summary>Dlaczego pytamy o te dane?</summary>
+        <p>Dane te pomagają nam lepiej zrozumieć preferencje użytkowników i personalizować nasze usługi.</p>
+    </details>
+
+    <!-- Stopka -->
+    <footer>
+        <p>&copy; 2024 Formularz Dodatkowy. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
+</body>
+</html>
