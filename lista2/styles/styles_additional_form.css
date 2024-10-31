@@ -1,7 +1,12 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-   
+    background-image: url("/lista2/img/leaves.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    background-color: goldenrod;
+
 }
 
 .navbar {
@@ -38,4 +43,9 @@ body {
     padding: 60px 20px;
 }
 
+
+#main_div
+{
+    background-color: #ff03a3;
+}
 

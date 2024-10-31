@@ -1,6 +1,9 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background-image: url(/lista2/img/creeper.png);
+    background-repeat: repeat;
+    background-color: cadetblue;
    
 }
 
@@ -38,4 +41,8 @@ body {
     padding: 60px 20px;
 }
 
+#main_div
+{
+    background-color: #5303ff;
+}
 

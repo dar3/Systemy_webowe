@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-   
+    background-color: rgba(97, 101, 17, 0.505);
 }
 
 .navbar {
@@ -40,4 +40,8 @@ body {
 
 #greeting {
     font-size: 2em;
+}
+
+h3{
+    text-shadow: 2px 2px #f44c4c;;
 }

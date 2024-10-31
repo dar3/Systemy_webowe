@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background-image: url("/lista2/img/road.jpg");
     background-color: antiquewhite;
    
 }
@@ -42,4 +43,8 @@ body {
 
 #funfacts{
     font-size: 105%;
+}
+
+#main_div{
+    background-color: #5ec261af;
 }
