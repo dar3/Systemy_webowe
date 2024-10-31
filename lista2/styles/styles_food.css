@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background-color: wheat;
    
 }
 
@@ -38,4 +39,6 @@ body {
     padding: 60px 20px;
 }
 
-
+p{
+    font-size: 13pt;
+}

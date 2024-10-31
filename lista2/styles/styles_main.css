@@ -38,4 +38,6 @@ body {
     padding: 60px 20px;
 }
 
-
+#greeting {
+    font-size: 2em;
+}
