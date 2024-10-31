@@ -46,3 +46,7 @@ body {
     background-color: #5303ff;
 }
 
+.container > p {
+    color: rgb(255, 0, 0);
+  }
+  
