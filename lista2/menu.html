@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu rozwijane</title>
+    <style>
+        /* Stylizacja menu */
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            position: relative;
+            width: 200px;
+        }
+
+        ul li a {
+            display: block;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            width: 200px;
+        }
+
+        ul li a:hover {
+            background-color: #555;
+        }
+
+        /* Stylizacja podmenu */
+        ul li ul {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 220px;
+        }
+
+        ul li:hover > ul {
+            display: block;
+        }
+
+        /* Stylizacja podmenu trzeciego poziomu */
+        ul li ul li ul {
+            left: 220px;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li><a href="#">Category 1</a>
+            <ul>
+                <li><a href="#">Subcategory 1.1</a>
+                    <ul>
+                        <li><a href="#">Subsubcategory 1.1.1</a></li>
+                        <li><a href="#">Subsubcategory 1.1.2</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Subcategory 1.2</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Category 2</a>
+            <ul>
+                <li><a href="#">Subcategory 2.1</a></li>
+                <li><a href="#">Subcategory 2.2</a>
+                    <ul>
+                        <li><a href="#">Subsubcategory 2.2.1</a></li>
+                        <li><a href="#">Subsubcategory 2.2.2</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><a href="#">Category 3</a></li>
+    </ul>
+
+</body>
+</html>
