@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Pseudoclasses</title>
+    <style>
+        a:link {
+            color: blue;
+        }
+
+        a:visited {
+            color: purple;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        a:active {
+            color: orange;
+        }
+
+        input:focus {
+            background-color: yellow;
+        }
+
+        input:required {
+            border: 2px solid red;
+        }
+
+        input:disabled {
+            background-color: lightgray;
+        }
+
+        li:first-child {
+            color: green;
+        }
+
+        li:last-child {
+            color: blue;
+        }
+
+        li:nth-child(2) {
+            color: orange;
+        }
+
+        p:empty::before {
+            content: "This is an empty paragraph.";
+        }
+
+        div:only-child {
+            color: teal;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Pseudoklasy CSS</h2>
+
+    <a href="#">Link (normal)</a><br>
+    <a href="#">Link (visited)</a><br>
+    <a href="#">Link (hover)</a><br>
+    <a href="#">Link (active)</a><br><br>
+
+    <input type="text" required placeholder="Required field"><br><br>
+    <input type="text" disabled placeholder="Disabled field"><br><br>
+
+    <p class="empty-paragraph"></p>
+
+    <ul>
+        <li>First element</li>
+        <li>Second element</li>
+        <li>Third element</li>
+    </ul>
+
+</body>
+</html>
