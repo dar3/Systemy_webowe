@@ -39,3 +39,12 @@ document.getElementById("greeting").addEventListener("click", calculateSum);
 document.getElementById("history").addEventListener("click", generateRandomNumber);
 document.getElementById("stockholm").addEventListener("click", showDynamicText);
 document.getElementById("run_loop").addEventListener("click", runLoop);
+
+
+// to add: 
+// button.addEventListener()
+//  parse Int
+// case
+// while
+// do while
+// create a number guessing game
