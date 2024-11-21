@@ -38,4 +38,4 @@ document.getElementById("greeting").addEventListener("contextmenu", showMessage)
 document.getElementById("greeting").addEventListener("click", calculateSum);
 document.getElementById("history").addEventListener("click", generateRandomNumber);
 document.getElementById("stockholm").addEventListener("click", showDynamicText);
-document.getElementById("mail").addEventListener("click", runLoop);
+document.getElementById("run_loop").addEventListener("click", runLoop);
