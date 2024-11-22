@@ -1,0 +1,23 @@
+body{
+    background-color: #71cf13;
+    color: #8000FF;
+    font-weight: bold;
+}
+
+h1{
+    text-align: center;
+}
+
+
+#game{
+    
+max-width: fit-content;
+margin-left: auto;
+margin-right: auto;
+
+}
+
+#guess{
+    height:20px;
+    width: 100px;
+}
