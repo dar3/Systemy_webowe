@@ -34,17 +34,16 @@ function runLoop() {
     window.alert(result);
 }
 
+var button = document.getElementById("run_loop");
+
 document.getElementById("greeting").addEventListener("contextmenu", showMessage);
 document.getElementById("greeting").addEventListener("click", calculateSum);
 document.getElementById("history").addEventListener("click", generateRandomNumber);
 document.getElementById("stockholm").addEventListener("click", showDynamicText);
-document.getElementById("run_loop").addEventListener("click", runLoop);
-
+button.addEventListener("click", runLoop);
 
 // to add: 
-// button.addEventListener()
-//  parse Int
 // case
 // while
 // do while
-// create a number guessing game
+
