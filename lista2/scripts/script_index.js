@@ -42,8 +42,5 @@ document.getElementById("history").addEventListener("click", generateRandomNumbe
 document.getElementById("stockholm").addEventListener("click", showDynamicText);
 button.addEventListener("click", runLoop);
 
-// to add: 
-// case
-// while
-// do while
+
 
