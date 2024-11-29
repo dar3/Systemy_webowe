@@ -50,3 +50,6 @@ body {
     color: rgb(255, 0, 0);
   }
   
+  .help-text {
+    display: none;
+  }

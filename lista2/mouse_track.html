@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Properties</title>
+    <style>
+        #trackingArea {
+            width: 400px;
+            height: 200px;
+            border: 2px solid black;
+            text-align: center;
+            line-height: 200px;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div id="trackingArea">Move the mouse in this area</div>
+    <script>
+        const trackingArea = document.getElementById('trackingArea');
+
+        trackingArea.addEventListener('mousemove', (event) => {
+            console.log(`Cursor movement detected: clientX=${event.clientX}, clientY=${event.clientY}, screenX=${event.screenX}, screenY=${event.screenY}`);
+        });
+
+        trackingArea.addEventListener('mousedown', (event) => {
+            console.log(`Mouse click detected: altKey=${event.altKey}, ctrlKey=${event.ctrlKey}, shiftKey=${event.shiftKey}, keyCode=${event.keyCode || 'n/a'}`);
+        });
+
+        trackingArea.addEventListener('mouseover', () => {
+            console.log('Cursor entered the area');
+        });
+
+        trackingArea.addEventListener('mouseout', () => {
+            console.log('Cursor left the area');
+        });
+    </script>
+</body>
+</html>
