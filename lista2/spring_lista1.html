@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Tabela Produkty_1</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        
+        .header-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px; 
+            margin-bottom: 20px;
+            
+        }
+
+        h2{
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-container">
+    <h2>Tabela produktów</h2>
+    <button id="add_product">Dodaj produkt</button>
+</div>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Nazwa produktu</th>
+        <th>Waga [kg]</th>
+        <th>Cena [pln]</th>
+        <th>Akcja</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Chleb</td>
+        <td>1</td>
+        <td>5,20</td>
+        <td>
+            <button id="details_btn">Szczegóły</button>
+            <button id="edit_btn">Edycja</button>
+            <button id="delete_btn">Usuwanie</button>
+        </td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Masło</td>
+        <td>0,25</td>
+        <td>7,00</td>
+        <td>...</td>
+    </tr>
+</table> 
+
+</body>
+</html>
