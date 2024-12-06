@@ -1,15 +1,79 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles_dom2.css">
     <title>DOM 2</title>
 </head>
-<body>
-    
 
+<body>
+
+    <h1>DOM Image property</h1>
+
+    <img src="img/creeper.png" alt="creeper" width="150" height="150">
+    <img src="img/Gamla_stan_1.png" alt="Gamla_stan_1" width="150" height="150">
+    <img src="img/Gamla_stan_3.png" alt="Gamla Street" idth="150" height="150">
+
+    <p>
+        For displaying the image count, <b>double
+            click</b> the "Image Count" button:
+    </p>
+
+    <button ondblclick="myImage()">Image Count </button>
+
+    <p id="ImageCount"></p>
+
+    <p><a href="dom1.html">DOM 1</a></p>
+    <p><a href="dom3.html">DOM 3</a></p>
+
+    <button onclick="myLinks()">Links number</button>
+
+
+
+    <p>The number of links in the document is:</p>
+    <p id="LinksNumber"></p>
+
+    <!-- Forms DOM -->
+
+
+    <p>
+    <form id="myCountry">
+        Favorite Country: <input type="text" name="fname" value="Ukraine">
+    </form>
+    </p>
+
+    <p>
+    <form id="myCity">
+        Favorite City: <input type="text" name="favcolor" value="Lviv">
+    </form>
+    </p>
+
+    <p>The HTML content of the form element with id="myCountry" is:</p>
+
+    <p id="demo"></p>
+
+    <button onclick="myForms()">Get content from Favourite Country</button>
+
+
+    <button onclick="myFlag()">Try it</button>
+    <p>Click "Try it" to create an img element.</p>
+
+    <button onclick="helpUkraine()">Help Ukraine</button>
+    <p>Click "Help" to see an a element.</p>
+
+    <ul id="moja-lista">
+        <li>Element 1</li>
+        <li>Element 2</li>
+        <li>Element 3</li>
+    </ul>
+
+    <button onclick="showElements()">Item DOM Usage</button>
+    <p>Click Item DOM Usage button</p>
+    <p id="showEl"></p>
 
     <script src="scripts/script_dom2.js"></script>
 </body>
+
 </html>

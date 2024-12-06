@@ -1,14 +1,47 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles_dom3.css">
     <title>DOM 3</title>
 </head>
+
 <body>
-    
+
+    <p id="demo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui hic quo deleniti tempore, fuga, voluptatum
+        maxime consequatur eveniet ipsum aperiam ad et earum ipsam impedit magni voluptatibus necessitatibus nostrum
+        magnam.</p>
+
+    <button onclick="ChangeBackground()">Change background-color to red</button>
+
+    <div id="div1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi ut soluta magni, non blanditiis ullam
+        tenetur. Repellendus tempore, nobis enim minus rerum culpa perspiciatis officia iure, fuga reprehenderit
+        possimus? Dolores.</div>
+
+    <button onclick="ChangeTextColor()">Change text color</button>
+
+    <br><br>
+
+    <select id="mySelect">
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Arial">Arial</option>
+        <option value="Verdana">Verdana</option>
+    </select>
+
+    <p>
+        The value of the option selected is:
+        <span class="output"></span>
+    </p>
+
+    <p id="sampleText">This is a sample text.</p>
+
+    <button onclick="mySelection()">Check option</button>
+
+
 
     <script src="scripts/script_dom3.js"></script>
 </body>
+
 </html>

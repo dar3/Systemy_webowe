@@ -59,13 +59,5 @@ function ParentNodeAdder(){
 
 
 
-// Pobierz przycisk
 
-
-// Dodaj obsługę kliknięcia
-// przycisk.addEventListener("click", () => {
-    // Utwórz nowy element <li>
-    
-
-    // Zlicz istniejące elementy i ustaw tekst
     
