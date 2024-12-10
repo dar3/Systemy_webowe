@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="_shared/_layout">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <title>Lista Kategorii</title>
+</head>
+
+<body>
+
+<h1>Tabela kategorii</h1>
+
+
+<button type="button" class="btn btn-success m-1" th:attr="onclick=|window.location.href ='/categories/add';|">
+    Dodaj kategorię
+</button>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Nazwa kategorii</th>
+        <th>Kod</th>
+        <th>Akcja</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="category : ${categories}">
+        <td th:text="${category.id}"></td>
+        <td th:text="${category.name}"></td>
+        <td th:text="${category.code}"></td>
+
+        <td>
+            <a th:href="@{'/categories/' + ${category.id} + '/edit'}">Edytuj</a>
+            <a th:href="@{'/categories/' + ${category.id} + '/delete'}">Usuń</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div th:insert="~{footer :: footer}"></div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+
+
+</body>
+</html>

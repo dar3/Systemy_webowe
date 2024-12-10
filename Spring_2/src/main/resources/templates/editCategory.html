@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Edytuj kategorię</title>
+</head>
+<body>
+<h1>Edytuj kategorię</h1>
+<form th:action="@{'/categories/' + ${category.id} + '/edit'}" th:object="${category}" method="post">
+  <label>Id:</label><span th:text="${category.id}"></span><br>
+  <label>Nazwa:</label><input type="text" required th:field="*{name}"><br>
+  <label>Kod:</label><input type="text"  required th:field="*{code}" disabled><br>
+  <button type="submit">Zapisz</button>
+</form>
+<a href="/categories">Wróć do listy</a>
+
+<div th:insert="~{footer :: footer}"></div>
+</body>
+</html>
