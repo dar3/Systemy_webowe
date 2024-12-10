@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles_pseudoclasses.css">
+    <title>CSS Pseudoclasses</title>
+    <style>
+        a:link {
+            color: blue;
+        }
+
+        a .link:visited {
+            color: purple;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        a:active {
+            color: orange;
+        }
+
+        input:focus {
+            background-color: yellow;
+        }
+
+        input:required {
+            border: 2px solid red;
+        }
+
+        input:disabled {
+            background-color: lightgray;
+        }
+
+        li:first-child {
+            color: green;
+        }
+
+        li:last-child {
+            color: blue;
+        }
+
+        li:nth-child(2) {
+            color: orange;
+        }
+
+        p:empty::before {
+            content: "This is an empty paragraph.";
+        }
+
+        div:only-child {
+            color: teal;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="navbar">
+      
+        <nav>
+          <a href="index.html" class="active">Strona Główna</a>
+          <a href="sightseeing.html">Atrakcje</a>
+          <a href="food.html">Jedzenie</a>
+          <a href="funfacts.html">Ciekawostki</a>
+          <a href="personal_data_form.html">Formularz osobowy</a>
+          <a href="additional_data_form.html">Formularz dodatkowy</a>
+          <a href="box_model.html">Box model</a>
+          <a href="border_change.html">Border change</a>
+          <a href="css_pseudoclasses.html">Pseudoclasses</a>
+          <a href="menu.html">Menu</a>
+       </nav>
+       <!-- <h6>.</h6> -->
+      </section>
+  
+      
+      
+      <div class="content">
+  
+      </div>
+
+    <h2>Pseudoklasy CSS</h2>
+
+    <a class="link" href="#">Link (normal)</a><br>
+    <a class="link" href="#">Link (visited)</a><br>
+    <a class="link"href="#">Link (hover)</a><br>
+    <a class="link"href="#">Link (active)</a><br><br>
+
+    <input type="text" required placeholder="Required field"><br><br>
+    <input type="text" disabled placeholder="Disabled field"><br><br>
+
+    <p class="empty-paragraph"></p>
+
+    <ul>
+        <li>First element</li>
+        <li>Second element</li>
+        <li>Third element</li>
+    </ul>
+
+</body>
+</html>
