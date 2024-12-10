@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edytuj produkt</title>
+</head>
+<body>
+<h1>Edytuj produkt</h1>
+<form th:action="@{'/products/' + ${product.id} + '/edit'}" th:object="${product}" method="post">
+  <label>Id:</label><span th:text="${product.id}"></span><br>
+  <label>Nazwa:</label><input type="text" required th:field="*{name}"><br>
+  <label>Waga:</label><input type="number" step="0.01" required th:field="*{weight}"><br>
+  <label>Cena:</label><input type="number" step="0.01" required th:field="*{price}"><br>
+  <label>Kategoria:</label><input type="text" required th:field="*{category}"><br>
+  <button type="submit">Zapisz</button>
+</form>
+<a href="/products">Wróć do listy</a>
+
+<div th:insert="~{footer :: footer}"></div>
+</body>
+</html>

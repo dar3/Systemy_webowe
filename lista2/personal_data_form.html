@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Formularz osobowy, Formularz główny, imie użytkownika, nazwisko użytkownika, miesiąc urodzin użytkownika, email użytkownika, telefon użytkownika">
+    <meta name="description" content="Formularz osobowy pomagający nam więcej dowiedzieć się o naszych użytkownikach.">
+    <link rel="stylesheet" href="styles/styles_personal_form.css">
+    <title>Formularz Osobowy</title>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="index.html" class="active">Strona Główna</a>
+        <a href="sightseeing.html">Atrakcje</a>
+        <a href="food.html">Jedzenie</a>
+        <a href="funfacts.html">Ciekawostki</a>
+        <a href="personal_data_form.html">Formularz osobowy</a>
+        <a href="additional_data_form.html">Formularz dodatkowy</a>
+        <a href="box_model.html">Box model</a>
+        <a href="border_change.html">Border change</a>
+        <a href="css_pseudoclasses.html">Pseudoclasses</a>
+        <a href="menu.html">Menu</a>
+    </div>
+
+    <div class="content">
+    </div>
+
+
+    <div id="main_div">
+
+    <h2>Formularz Osobowy</h2>
+
+    <!-- Panel boczny z informacją -->
+    <aside>
+        <p>Ważna informacja: <mark>Pola oznaczone gwiazdką (*) są wymagane.</mark></p>
+    </aside>
+
+    <form action="#" method="post" autocomplete="on" id="personal-data-form">
+
+        <!-- Imię -->
+        <label for="fname">Imię*: </label>
+        <input type="text" id="fname" name="fname" required>
+        <span>np. Jan</span><br><br>
+
+        <!-- Nazwisko -->
+        <label for="lname">Nazwisko*: </label>
+        <input type="text" id="lname" name="lname" required>
+        <span>np. Kowalski</span><br><br>
+
+        <!-- Miesiąc urodzin -->
+        <label for="month">Miesiąc urodzin: </label>
+        <input list="months" id="month" name="month">
+        <datalist id="months">
+            <option value="Styczeń">
+            <option value="Luty">
+            <option value="Marzec">
+            <option value="Kwiecień">
+            <option value="Maj">
+            <option value="Czerwiec">
+            <option value="Lipiec">
+            <option value="Sierpień">
+            <option value="Wrzesień">
+            <option value="Październik">
+            <option value="Listopad">
+            <option value="Grudzień">
+        </datalist>
+        <span>np. Maj</span><br><br>
+
+        <!-- Adres email -->
+        <label for="email">Adres e-mail*: </label>
+        <input type="email" id="email" name="email" required>
+        <span class="help-text" id="helpEmail">np. jan.kowalski@mail.com</span><br><br>
+
+        <!-- Telefon -->
+        <label for="phone">Telefon: </label>
+        <input type="tel" id="phone" name="phone" pattern="\+[0-9]{2} [0-9]{3}-[0-9]{3}-[0-9]{3}" placeholder="+XX XXX-XXX-XXX">
+        <span class="help-text" id="helpPhone">np. +48 123-456-789</span><br><br>
+
+        <input type="submit" value="Wyślij">
+        <input type="reset" value="Reset">
+
+    </form>
+
+    <!-- Szczegóły formularza w elemencie details/summary -->
+    <details>
+        <summary>Instrukcje uzupełniania formularza</summary>
+        <p>Formularz zawiera pola wymagane i opcjonalne. Imię, nazwisko oraz adres e-mail muszą zostać wypełnione przed wysłaniem formularza.</p>
+    </details>
+
+    <!-- Stopka -->
+    <footer>
+        <p>&copy; 2024 Formularz Osobowy. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
+    <div class="container">
+        <p>Prezentacja selektora dziecka bezpośredniego</p>
+        <div>
+          <p>Paragraf 2</p>
+        </div>
+      </div>
+
+      <script src="scripts/script_focus_blur.js"></script>
+
+</div>
+
+</body>
+</html>

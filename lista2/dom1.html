@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles_dom1.css">
+    <title>DOM i obsługa zdarzeń</title>
+</head>
+
+<body>
+
+
+    <ol id="myList">
+        <li>Water</li>
+        <li>Cacao</li>
+    </ol>
+
+
+    <ul id="myList2">
+        <li>Red</li>
+        <li>Green</li>
+    </ul>
+
+
+    <ul id="myList3">
+        <li>Element 1</li>
+        <li>Element 2</li>
+    </ul>
+
+
+    
+
+    <p id="myParagraph">Click "Append" to append an item to the end of the list:</p>
+    <button onclick="Appender()">Append to the bottom of the list</button>
+
+
+    <button onclick="InsertingBefore()">Put on the top of the list</button>
+
+    <p>Click "Replace" to replace the first item in the the list.</p>
+    <button onclick="Replacer()">Turn water into the wine. (Replace)</button>
+
+    <p>Click "Remove" to remove the first item from the list:</p>
+    <button onclick="Remover()">Remove</button>
+
+    <p>Click Add ParentNode element to add numbered element to a list</p>
+    <button id="addElement" onclick="ParentNodeAdder()">Add element</button>
+
+    <script src="scripts/script_dom1.js"></script>
+
+</body>
+
+</html>
