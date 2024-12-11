@@ -9,7 +9,7 @@
 <form th:action="@{'/categories/' + ${category.id} + '/edit'}" th:object="${category}" method="post">
   <label>Id:</label><span th:text="${category.id}"></span><br>
   <label>Nazwa:</label><input type="text" required th:field="*{name}"><br>
-  <label>Kod:</label><input type="text"  required th:field="*{code}" disabled><br>
+  <label>Kod:</label><input type="text"  required th:field="*{code}" ><br>
   <button type="submit">Zapisz</button>
 </form>
 <a href="/categories">Wróć do listy</a>

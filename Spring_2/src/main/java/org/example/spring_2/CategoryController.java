@@ -7,19 +7,26 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Controller
+
 @RequestMapping("/categories")
 public class CategoryController {
 
+    private final CategoryService categoryService;
     private final List<Category> categories = new ArrayList<>();
     private int counter = 0;
+
+    public CategoryController(CategoryService categoryService) {
+        this.categoryService = categoryService;
+    }
 
 
     @GetMapping
     public List<Category> getCategories(Model model) {
-        model.addAttribute("categories", categories);
-        return categories;
+        model.addAttribute("categories", categoryService.findAll());
+//        model.addAttribute("categories", categories);
+//        return categories;
+        return categoryService.findAll();
     }
 
     @GetMapping("/add")
@@ -30,29 +37,42 @@ public class CategoryController {
 
     @PostMapping("/add")
     public String saveCategory(@ModelAttribute("category") Category category) {
-        category.setId(++counter);
-        category.setCode("K" + category.getId());
+//        category.setId(++counter);
+        category.setCode("K" + ++counter);
         categories.add(category);
+        categoryService.add(category);
         return "redirect:/categories";
     }
 
 
     @GetMapping("/{id}/edit")
     public String editCategoryPage(@PathVariable int id, Model model) {
-        Category category = categories.stream()
+        Category category = categoryService.findAll().stream()
                 .filter(p -> p.getId() == id)
                 .findFirst()
                 .orElse(null);
+
+//        Category category = categories.stream()
+//                .filter(p -> p.getId() == id)
+//                .findFirst()
+//                .orElse(null);
+
         model.addAttribute("category", category);
         return "editCategory";
     }
 
     @PostMapping("/{id}/edit")
     public String updateCategory(@PathVariable int id, @ModelAttribute("category") Category updatedCategory) {
-        Category existingCategory = categories.stream()
+        categoryService.update(updatedCategory);
+        Category existingCategory = categoryService.findAll().stream()
                 .filter(p -> p.getId() == id)
                 .findFirst()
                 .orElse(null);
+
+//        Category existingCategory = categories.stream()
+//                .filter(p -> p.getId() == id)
+//                .findFirst()
+//                .orElse(null);
         if (existingCategory != null) {
             existingCategory.setName(updatedCategory.getName());
         }
@@ -62,6 +82,7 @@ public class CategoryController {
 
     @GetMapping("/{id}/delete")
     public String deleteCategory(@PathVariable int id) {
+        categoryService.deleteById(id);
         try {
             categories.removeIf(category -> category.getId() == id);
         } catch (Exception ignored) {
