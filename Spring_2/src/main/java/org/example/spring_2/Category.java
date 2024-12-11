@@ -1,11 +1,11 @@
 package org.example.spring_2;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -18,31 +18,10 @@ public class Category {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @Column(name = "category_name")
+    @Column(name = "category_name", unique = true, nullable = false)
     private String name;
+    @Column(unique = true, nullable = false)
     private String code;
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public int getId() {
-        return this.id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public String getCode() {
-        return this.code;
-    }
 }

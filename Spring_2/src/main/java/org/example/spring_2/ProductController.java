@@ -1,5 +1,6 @@
 package org.example.spring_2;
 
+import lombok.AllArgsConstructor;
 import org.example.spring_2.Product;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,31 +8,34 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@AllArgsConstructor
 @Controller
 @RequestMapping("/products")
 public class ProductController {
 
     private final List<Product> products = new ArrayList<>();
-    private int counter = 0;
+    private final ProductService productService;
+    private final CategoryService categoryService;
 
 
     @GetMapping
     public List<Product> getProducts(Model model) {
-        model.addAttribute("products", products);
-        return products;
+        model.addAttribute("products", productService.findAll());
+        return productService.findAll();
     }
 
     @GetMapping("/add")
     public String addProductPage(Model model) {
         model.addAttribute("product", new Product());
+        model.addAttribute("categories", categoryService.findAll());
+//        model.addAttribute("kat", categoryService.findAll().getFirst());
+//        System.out.println(categoryService.getCategoryRepository().findById(1));
         return "addProduct";
     }
 
     @PostMapping
     public String saveProduct(@ModelAttribute("product") Product product) {
-        product.setId(++counter);
-        products.add(product);
+        productService.add(product);
         return "redirect:/products";
     }
 

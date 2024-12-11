@@ -1,25 +1,45 @@
 package org.example.spring_2;
 
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
-
+@AllArgsConstructor
 @Service
 public class CategoryService {
 
+
     private final CategoryRepository categoryRepository;
 
-    public CategoryService(CategoryRepository categoryRepository) {
-        this.categoryRepository = categoryRepository;
-    }
 
     public List<Category> findAll() {
         return (List<Category>) categoryRepository.findAll();
     }
 
+
     public Category add(Category category) {
-        return categoryRepository.save(category);
+        if (category.getCode() == null || category.getCode().isEmpty()) {
+            category.setCode(generateUniqueCode());
+        }
+        try {
+            return categoryRepository.save(category);
+        } catch (DataIntegrityViolationException e) {
+            throw new IllegalArgumentException("Category with the same name or code already exists.");
+        }
+    }
+
+    private String generateUniqueCode() {
+
+        Optional<String> maxCode = categoryRepository.findMaxCode();
+        if (maxCode.isPresent()) {
+            int nextNumber = Integer.parseInt(maxCode.get().substring(1)) + 1;
+            return "K" + nextNumber;
+        }
+        return "K1"; // if there are no records we start from K1
     }
 
     public void update(Category category) {

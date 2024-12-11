@@ -2,14 +2,14 @@ CREATE SCHEMA IF NOT EXISTS sklep;
 
 CREATE TABLE IF NOT EXISTS sklep.category(
     id           integer  primary key,
-    category_name     varchar(50)   not null,
-    code    varchar(50)   not null
+    category_name     varchar(50)   not null unique,
+    code    varchar(50)   not null unique
     );
 
 CREATE TABLE IF NOT EXISTS sklep.product
 (
-    id INTEGER PRIMARY KEY,
-    product_name VARCHAR(50) NOT NULL,
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    product_name VARCHAR(50) NOT NULL unique,
     weight DOUBLE,
     price DOUBLE,
     category_id INTEGER NOT NULL,

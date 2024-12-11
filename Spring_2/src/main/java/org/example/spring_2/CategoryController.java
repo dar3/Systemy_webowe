@@ -1,5 +1,6 @@
 package org.example.spring_2;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -7,18 +8,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@AllArgsConstructor
 @Controller
 
 @RequestMapping("/categories")
 public class CategoryController {
 
     private final CategoryService categoryService;
-    private final List<Category> categories = new ArrayList<>();
-    private int counter = 0;
+//    private final List<Category> categories = new ArrayList<>();
+//    private int counter = 0;
 
-    public CategoryController(CategoryService categoryService) {
-        this.categoryService = categoryService;
-    }
+//    public CategoryController(CategoryService categoryService) {
+//        this.categoryService = categoryService;
+//    }
 
 
     @GetMapping
@@ -38,8 +40,8 @@ public class CategoryController {
     @PostMapping("/add")
     public String saveCategory(@ModelAttribute("category") Category category) {
 //        category.setId(++counter);
-        category.setCode("K" + ++counter);
-        categories.add(category);
+//        category.setCode("K" + ++counter);
+//        categories.add(category);
         categoryService.add(category);
         return "redirect:/categories";
     }
@@ -82,9 +84,8 @@ public class CategoryController {
 
     @GetMapping("/{id}/delete")
     public String deleteCategory(@PathVariable int id) {
-        categoryService.deleteById(id);
         try {
-            categories.removeIf(category -> category.getId() == id);
+            categoryService.deleteById(id);
         } catch (Exception ignored) {
             System.out.println("Error deleting category " + id);
         }
