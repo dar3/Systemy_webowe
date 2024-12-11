@@ -1,10 +1,11 @@
 CREATE SCHEMA IF NOT EXISTS sklep;
 
-CREATE TABLE IF NOT EXISTS sklep.category(
-    id           integer  primary key,
-    category_name     varchar(50)   not null unique,
-    code    varchar(50)   not null unique
-    );
+CREATE TABLE IF NOT EXISTS sklep.category
+(
+    id integer primary key,
+    category_name varchar(50) not null unique,
+    code varchar(50) not null unique
+);
 
 CREATE TABLE IF NOT EXISTS sklep.product
 (
@@ -16,3 +17,10 @@ CREATE TABLE IF NOT EXISTS sklep.product
     CONSTRAINT fk_product_category FOREIGN KEY (category_id) REFERENCES sklep.category (id)
 );
 
+CREATE TABLE IF NOT EXISTS sklep.users
+(
+    id INTEGER PRIMARY KEY ,
+    username VARCHAR(100) NOT NULL ,
+    password VARCHAR(100) NOT NULL ,
+    permission_level INTEGER NOT NULL
+);
