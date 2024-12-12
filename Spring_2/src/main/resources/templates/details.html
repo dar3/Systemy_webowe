@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang = "pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Szczegóły produktu</title>
@@ -25,10 +25,13 @@
     </tr>
     <tr>
         <th>Kategoria:</th>
-        <td th:text="${product.category}"></td>
+        <td th:text="${product.category.name}"></td>
     </tr>
 </table>
-<a href="/products">Wróć do listy</a>
+<form th:action="@{/products}" method="get" style="display:inline;">
+    <button type="submit">Wróć do listy</button>
+</form>
+
 
 <div th:insert="~{footer :: footer}"></div>
 </body>

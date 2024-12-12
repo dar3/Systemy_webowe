@@ -8,7 +8,9 @@
 <body>
 
     <h1>Tabela produktów</h1>
-    <a href="/products/add">Dodaj produkt</a>
+    <form th:action="@{/products/add}" method="get" style="display:inline;">
+        <button type="submit">Dodaj produkt</button>
+    </form>
 
     <table border="1">
         <thead>
@@ -29,14 +31,29 @@
             <td th:text="${product.price}"></td>
             <td th:text="${product.category.name}"></td>
             <td>
-                <a th:href="@{'/products/' + ${product.id} + '/details'}">Szczegóły</a>
-                <a th:href="@{'/products/' + ${product.id} + '/edit'}">Edytuj</a>
-                <a th:href="@{'/products/' + ${product.id} + '/delete'}">Usuń</a>
+                <form th:action="@{'/products/' + ${product.id} + '/details'}" method="get" style="display:inline;">
+                <button type="submit">Szczegóły</button>
+                </form>
+
+
+                <form th:action="@{'/products/' + ${product.id} + '/edit'}" method="get" style="display:inline;">
+                    <button type="submit">Edytuj</button>
+                </form>
+
+
+                <form th:action="@{'/products/' + ${product.id} + '/delete'}" method="get" style="display:inline;">
+                    <button type="submit" onclick="return confirm('Czy na pewno chcesz usunąć ten produkt?')">Usuń</button>
+                </form>
             </td>
         </tr>
         </tbody>
     </table>
 
+    <br>
+    <form th:action="@{/categories}" method="get" style="display:inline;">
+        <button type="submit">Przejdź do tabeli kategorii</button>
+    </form>
+<br>
 <div th:insert="~{footer :: footer}"></div>
 
 </body>
