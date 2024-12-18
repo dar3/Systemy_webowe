@@ -1,7 +1,6 @@
 package org.example.spring_2;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
@@ -54,7 +53,7 @@ public class CategoryService {
         if (o == this) return true;
         if (!(o instanceof CategoryService)) return false;
         final CategoryService other = (CategoryService) o;
-        if (!other.canEqual((Object) this)) return false;
+        if (!other.canEqual(this)) return false;
         final Object this$categoryRepository = this.getCategoryRepository();
         final Object other$categoryRepository = other.getCategoryRepository();
         if (this$categoryRepository == null ? other$categoryRepository != null : !this$categoryRepository.equals(other$categoryRepository))

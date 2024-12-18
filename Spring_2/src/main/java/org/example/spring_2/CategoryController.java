@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+
 @AllArgsConstructor
 @Controller
 
@@ -13,7 +14,7 @@ import java.util.List;
 public class CategoryController {
 
     private final CategoryService categoryService;
-
+    private final CategoryRepository categoryRepository;
 
 
     @GetMapping
@@ -30,7 +31,8 @@ public class CategoryController {
 
     @PostMapping("/add")
     public String saveCategory(@ModelAttribute("category") Category category) {
-        categoryService.add(category);
+        if (categoryRepository.findByName(category.getName()) == null)
+            categoryService.add(category);
         return "redirect:/categories";
     }
 
@@ -50,7 +52,12 @@ public class CategoryController {
 
     @PostMapping("/{id}/edit")
     public String updateCategory(@ModelAttribute("category") Category updatedCategory) {
-        categoryService.update(updatedCategory);
+        Category sameNameCategory = categoryRepository.findByName(updatedCategory.getName());
+        Category sameCodeCategory = categoryRepository.findByCode(updatedCategory.getCode());
+        if ((sameNameCategory == null || sameNameCategory.getId() ==
+                updatedCategory.getId()) && (sameCodeCategory == null || sameCodeCategory.getId() ==
+                updatedCategory.getId()))
+            categoryService.update(updatedCategory);
         return "redirect:/categories";
     }
 
