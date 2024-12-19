@@ -2,6 +2,9 @@ package org.example.spring_2;
 
 import lombok.AllArgsConstructor;
 import org.example.spring_2.Product;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Controller
 @RequestMapping("/products")
+//@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
 public class ProductController {
 
     private final List<Product> products = new ArrayList<>();

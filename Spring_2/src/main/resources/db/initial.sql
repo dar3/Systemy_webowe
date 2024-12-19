@@ -22,5 +22,5 @@ CREATE TABLE IF NOT EXISTS sklep.users
     id INTEGER PRIMARY KEY ,
     username VARCHAR(100) NOT NULL ,
     password VARCHAR(100) NOT NULL ,
-    permission_level INTEGER NOT NULL
+    role ENUM('ADMIN', 'USER') NOT NULL
 );

@@ -8,31 +8,34 @@ import lombok.*;
 @Entity
 @Setter
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+
 
 @Table(name = "users", schema = "sklep")
 public class User {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "username", unique = true, nullable = false)
-    @NotNull
-    @NotEmpty
+    @Column(name = "username")
     private String username;
 
-    @Column(name = "password", nullable = false)
-    @NotNull
-    @NotEmpty
+    @Column(name = "password")
     private String password;
 
-    @Column(name = "permission_level", nullable = false)
-    @NotNull
-    @NotEmpty
-    private int permission_level;
+    @Column(name = "role")
+    private String role;
 
+    public User(String username, String password, String role) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
+
+    public User() {
+        this.username = "-";
+        this.password = "-";
+        this.role = "-";
+    }
 }
