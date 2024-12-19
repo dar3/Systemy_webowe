@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang = "pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Dodaj Produkt</title>
@@ -19,12 +19,14 @@
         </option>
     </select>
 
-<!--    <select>-->
-<!--        <option th:value = "${kat.name}">test</option>-->
-<!--    </select>-->
 
     <br><br>
     <button type="submit">Zapisz</button>
+</form>
+
+<br>
+<form th:action="@{/products}" method="get" style="display:inline;">
+    <button type="submit">Wróć do listy</button>
 </form>
 
 <div th:insert="~{footer :: footer}"></div>

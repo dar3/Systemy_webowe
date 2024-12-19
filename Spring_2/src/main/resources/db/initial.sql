@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS sklep.category
     id integer primary key,
     category_name varchar(50) not null unique,
     code varchar(50) not null unique
+
 );
 
 CREATE TABLE IF NOT EXISTS sklep.product
@@ -15,6 +16,7 @@ CREATE TABLE IF NOT EXISTS sklep.product
     price DOUBLE,
     category_id INTEGER NOT NULL,
     CONSTRAINT fk_product_category FOREIGN KEY (category_id) REFERENCES sklep.category (id)
+        ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS sklep.users
@@ -22,5 +24,9 @@ CREATE TABLE IF NOT EXISTS sklep.users
     id INTEGER PRIMARY KEY ,
     username VARCHAR(100) NOT NULL ,
     password VARCHAR(100) NOT NULL ,
+
     role ENUM('ADMIN', 'USER') NOT NULL
 );
+
+
+

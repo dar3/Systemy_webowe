@@ -11,5 +11,7 @@ public interface CategoryRepository extends CrudRepository<Category, Integer> {
 
     @Query("SELECT c.code FROM Category c ORDER BY c.code DESC LIMIT 1")
     Optional<String> findMaxCode();
+    Category findByName(String name);
+    Category findByCode(String code);
 
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang = "pl" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>Edytuj kategorię</title>
@@ -12,7 +12,10 @@
   <label>Kod:</label><input type="text"  required th:field="*{code}" ><br>
   <button type="submit">Zapisz</button>
 </form>
-<a href="/categories">Wróć do listy</a>
+<form th:action="@{/categories}" method="get" style="display:inline;">
+  <button type="submit">Wróć do listy</button>
+</form>
+
 
 <div th:insert="~{footer :: footer}"></div>
 

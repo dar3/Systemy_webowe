@@ -33,15 +33,41 @@
         <td th:text="${category.name}"></td>
         <td th:text="${category.code}"></td>
 
+<!--        <td>-->
+<!--            <a th:href="@{'/categories/' + ${category.id} + '/edit'}">Edytuj</a>-->
+<!--            <a th:href="@{'/categories/' + ${category.id} + '/delete'}">Usuń</a>-->
+<!--        </td>-->
+
         <td>
-            <a th:href="@{'/categories/' + ${category.id} + '/edit'}">Edytuj</a>
-            <a th:href="@{'/categories/' + ${category.id} + '/delete'}">Usuń</a>
+            <!-- Przycisk "Edytuj" -->
+            <form th:action="@{'/categories/' + ${category.id} + '/edit'}" method="get" style="display:inline;">
+                <button type="submit">Edytuj</button>
+            </form>
+
+            <!-- Przycisk "Usuń" -->
+            <form th:action="@{'/categories/' + ${category.id} + '/delete'}" method="get" style="display:inline;">
+                <input type="hidden" name="_method" value="delete">
+                <button type="submit" onclick="return confirm('Czy na pewno chcesz usunąć tę kategorię?')">Usuń</button>
+            </form>
+
         </td>
+
     </tr>
     </tbody>
 </table>
 
+
+
+
+<br>
+<form th:action="@{/products}" method="get" style="display:inline;">
+    <button type="submit">Przejdź do tabeli produktów</button>
+</form>
+  
+<br>
+  
 <div th:insert="~{logout_link :: logout_link}"></div>
+
 <div th:insert="~{footer :: footer}"></div>
 
 
