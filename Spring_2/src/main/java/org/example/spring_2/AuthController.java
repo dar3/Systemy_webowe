@@ -1,5 +1,6 @@
 package org.example.spring_2;
 
+import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -42,6 +43,8 @@ public class AuthController {
             System.out.println("Zapisano dane użytkownika: " + user.getUsername());
             return "redirect:/login";
         }
+
+
     }
 
     @GetMapping("/login")
@@ -80,5 +83,16 @@ public class AuthController {
         System.out.println("Nieudane logowanie dla: " + username);
         return "redirect:/login?error";
     }
+
+    @PostConstruct
+    public void encryptPasswordOnStartup() {
+        String plainPassword = "pass";
+        String encryptedPassword = passwordEncoder.encode(plainPassword);
+        System.out.println("Plain password: " + plainPassword);
+        System.out.println("Encrypted password: " + encryptedPassword);
+//        $2a$10$ylsYyvnabBTb/9z8Khugx.kCEaZUQolAZ0vStnQBiWrmOhuqVH6xe
+    }
+
+
 
 }
