@@ -3,7 +3,6 @@ package org.example.spring_2;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -48,7 +47,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/register", "/login", "/").permitAll()
                         .requestMatchers("/categories", "/categories/**").hasAuthority("ROLE_ADMIN")
-                        .requestMatchers("/products", "/products/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
+                        .requestMatchers("/products", "/products/**", "/cart", "/cart/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
                         //.anyRequest().authenticated()
 
                 )

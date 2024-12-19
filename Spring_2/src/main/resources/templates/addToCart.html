@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Add to cart</title>
+</head>
+<body>
+
+<script>
+    function addToCart(productId, productName, price) {
+        const cartItem = {
+            productId: productId,
+            productName: productName,
+            price: price,
+            quantity: 1
+        };
+
+        fetch('/cart/add', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(cartItem)
+        }).then(response => {
+            if (response.ok) {
+                alert("Produkt dodany do koszyka!");
+            } else {
+                alert("Nie udało się dodać produktu do koszyka.");
+            }
+        });
+    }
+</script>
+
+<!--Change to DB data-->
+<button onclick="addToCart(1, 'Produkt 1', 100)">Dodaj do koszyka</button>
+
+
+
+</body>
+</html>

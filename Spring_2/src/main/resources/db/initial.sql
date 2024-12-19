@@ -28,5 +28,13 @@ CREATE TABLE IF NOT EXISTS sklep.users
     role ENUM('ADMIN', 'USER') NOT NULL
 );
 
+-- CREATE TABLE IF NOT EXISTS  sklep.cart
+-- (
+--     id INTEGER AUTO_INCREMENT PRIMARY KEY ,
+--     user_id INTEGER NOT NULL UNIQUE ,
+--     cart_id INTEGER NOT NULL UNIQUE ,
+--     CONSTRAINT fk_cart_user FOREIGN KEY (user_id) REFERENCES sklep.users (id)
+-- );
+
 
 
