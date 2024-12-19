@@ -9,6 +9,7 @@ import java.util.List;
 @AllArgsConstructor
 @Controller
 @RequestMapping("/products")
+//@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
 public class ProductController {
 
 

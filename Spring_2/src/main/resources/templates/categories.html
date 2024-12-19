@@ -56,13 +56,18 @@
     </tbody>
 </table>
 
+
+
+
 <br>
 <form th:action="@{/products}" method="get" style="display:inline;">
     <button type="submit">Przejdź do tabeli produktów</button>
 </form>
-
-
+  
 <br>
+  
+<div th:insert="~{logout_link :: logout_link}"></div>
+
 <div th:insert="~{footer :: footer}"></div>
 
 

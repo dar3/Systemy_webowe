@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rejestracja</title>
+</head>
+<body>
+
+<h1>Rejestracja</h1>
+
+    <form action="/register" method="post">
+
+    <label for="username">Login:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Hasło:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Register</button>
+    </form>
+
+<a href="/login">Zaloguj się</a>
+
+<div>
+    <p th:if="${param.error}" style="color: red;">Użytkownik o takiej nazwie już istnieje.</p>
+</div>
+
+<div th:insert="~{footer :: footer}"></div>
+</body>
+</html>
