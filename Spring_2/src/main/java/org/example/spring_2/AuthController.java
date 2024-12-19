@@ -74,7 +74,7 @@ public class AuthController {
 
 
             System.out.println("Zalogowano użytkownika: " + username + ", Authority: " + user.get().getRole());
-            return "redirect:/products";
+            return "redirect:/cart";
         }
 
         System.out.println("Nieudane logowanie dla: " + username);

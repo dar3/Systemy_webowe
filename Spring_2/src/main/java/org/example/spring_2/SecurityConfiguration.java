@@ -48,7 +48,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/register", "/login", "/").permitAll()
                         .requestMatchers("/categories", "/categories/**").hasAuthority("ROLE_ADMIN")
-                        .requestMatchers("/products", "/products/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
+                        .requestMatchers("/products", "/cart").authenticated()
                         //.anyRequest().authenticated()
 
                 )
