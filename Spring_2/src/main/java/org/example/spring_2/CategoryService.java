@@ -35,7 +35,10 @@ public class CategoryService {
 
         Optional<String> maxCode = categoryRepository.findMaxCode();
         if (maxCode.isPresent()) {
-            int nextNumber = Integer.parseInt(maxCode.get().substring(1)) + 1;
+            System.out.println(maxCode.get());
+            String currNumber = maxCode.get().substring(1);
+            System.out.println("Curr: " + currNumber);
+            int nextNumber = Integer.parseInt(currNumber) + 1;
             return "K" + nextNumber;
         }
         return "K1"; // if there are no records we start from K1

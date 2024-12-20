@@ -47,10 +47,9 @@ public class SecurityConfiguration {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/register", "/login", "/").permitAll()
-                        .requestMatchers("/categories", "/categories/**").hasAuthority("ROLE_ADMIN")
-                        .requestMatchers("/products", "/products/**", "/cart", "/cart/**", "/cookies", "/cookies/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
-                         .requestMatchers("/products").authenticated()
-                        //.anyRequest().authenticated()
+                        .requestMatchers("/categories", "/categories/**", "/products", "/products/**").hasAuthority("ROLE_ADMIN")
+                        .requestMatchers("/cart", "/cart/**", "/cookies", "/cookies/**").authenticated()
+                        .anyRequest().denyAll()
 
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED));
