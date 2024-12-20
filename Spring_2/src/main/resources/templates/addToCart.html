@@ -1,40 +1,52 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add to cart</title>
+    <title>Produkty</title>
 </head>
 <body>
+<h1>Lista produktów</h1>
 
-<script>
-    function addToCart(productId, productName, price) {
-        const cartItem = {
-            productId: productId,
-            productName: productName,
-            price: price,
-            quantity: 1
-        };
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nazwa</th>
+        <th>Waga</th>
+        <th>Cena</th>
+        <th>Kategoria</th>
+        <th>Dodaj do koszyka</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.weight}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.category.name}"></td>
+        <td>
+            <form th:action="@{/cart/add}" method="post">
+                <input type="hidden" name="id" th:value="${product.id}">
+                <input type="hidden" name="name" th:value="${product.name}">
+                <input type="hidden" name="price" th:value="${product.price}">
+                <input type="hidden" name="weight" th:value="${product.weight}">
+                <input type="hidden" name="category" th:value="${product.category.name}">
+                <label>Ilość:</label>
+                <input type="number" name="quantity" value="1" min="1" required>
+                <button type="submit">Dodaj</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
 
-        fetch('/cart/add', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(cartItem)
-        }).then(response => {
-            if (response.ok) {
-                alert("Produkt dodany do koszyka!");
-            } else {
-                alert("Nie udało się dodać produktu do koszyka.");
-            }
-        });
-    }
-</script>
+<br>
+<form th:action="@{/products}" method="get" style="display:inline;">
+    <button type="submit">Wróć do listy</button>
+</form>
 
-<!--Change to DB data-->
-<button onclick="addToCart(1, 'Produkt 1', 100)">Dodaj do koszyka</button>
-
-
+<div th:insert="~{footer :: footer}"></div>
 
 </body>
 </html>

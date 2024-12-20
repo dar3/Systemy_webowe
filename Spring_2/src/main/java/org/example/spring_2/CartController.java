@@ -1,10 +1,12 @@
 package org.example.spring_2;
 
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -18,12 +20,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 @RequestMapping("/cart")
 public class CartController {
 
     @PostMapping("/add")
-    public ResponseEntity<Void> addToCart(@RequestBody CartItem cartItem, HttpServletResponse response, HttpServletRequest request) {
+    public String addToCart(@RequestBody CartItem cartItem, HttpServletResponse response, HttpServletRequest request) {
         Cookie[] cookies = request.getCookies();
         String cartJson = "";
 
@@ -36,7 +38,8 @@ public class CartController {
             }
         }
 
-        List<CartItem> cartItems = cartJson.isEmpty() ? new ArrayList<>() : new Gson().fromJson(cartJson, new TypeToken<List<CartItem>>(){}.getType());
+        List<CartItem> cartItems = cartJson.isEmpty() ? new ArrayList<>() : new Gson().fromJson(cartJson, new TypeToken<List<CartItem>>() {
+        }.getType());
         cartItems.add(cartItem);
 
         String updatedCartJson = URLEncoder.encode(new Gson().toJson(cartItems), StandardCharsets.UTF_8);
@@ -45,7 +48,8 @@ public class CartController {
         cartCookie.setHttpOnly(false);
         response.addCookie(cartCookie);
 
-        return ResponseEntity.ok().build();
+        return "redirect:/cart";
+//        return ResponseEntity.ok().build();
     }
 
     @GetMapping
@@ -53,10 +57,9 @@ public class CartController {
         Cookie[] cookies = request.getCookies();
 
 
-
         if (cookies == null || cookies.length == 0) {
             return ResponseEntity.ok(new ArrayList<>());
-        } else  {
+        } else {
 
             String cartJson = "";
             for (Cookie cookie : cookies) {
@@ -71,12 +74,26 @@ public class CartController {
                 return ResponseEntity.ok(new ArrayList<>());
             }
 
-            List<CartItem> cartItems = new Gson().fromJson(cartJson, new TypeToken<List<CartItem>>() {}.getType());
+            List<CartItem> cartItems = new Gson().fromJson(cartJson, new TypeToken<List<CartItem>>() {
+            }.getType());
             return ResponseEntity.ok(cartItems);
         }
 
 
-
-
     }
+
+    @GetMapping("/add")
+    public String addProductForm(Model model, HttpServletRequest request) {
+      return "redirect:/cart/addToCart";
+    }
+
+    @GetMapping("/addToCart")
+    public String addToCartPage(Model model) {
+        model.addAttribute("message", "You have been redirected to Add to Cart page!");
+        return "addToCart"; // Plik widoku "addToCart.html" w katalogu templates
+    }
+
+
+
+
 }

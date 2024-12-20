@@ -1,94 +1,16 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koszyk</title>
-    <script>
-        function loadCart() {
-            fetch('/cart')
-                .then(response => response.json())
-                .then(cartItems => {
-                    const cartTableBody = document.getElementById('cartTableBody');
-                    cartTableBody.innerHTML = ''; // Wyczyść tabelę przed załadowaniem nowych danych
-                    let totalPrice = 0;
-
-                    cartItems.forEach(item => {
-                        totalPrice += item.price * item.quantity;
-                        const row = `<tr>
-                            <td>${item.productName}</td>
-                            <td>${item.price} zł</td>
-                            <td>
-                                <button onclick="updateQuantity(${item.productId}, -1)">-</button>
-                                ${item.quantity}
-                                <button onclick="updateQuantity(${item.productId}, 1)">+</button>
-                            </td>
-                            <td>${(item.price * item.quantity).toFixed(2)} zł</td>
-                            <td><button onclick="removeFromCart(${item.productId})">Usuń</button></td>
-                        </tr>`;
-                        cartTableBody.innerHTML += row;
-                    });
-
-                    document.getElementById('totalPrice').textContent = `Suma: ${totalPrice.toFixed(2)} zł`;
-                });
-        }
-
-        function updateQuantity(productId, delta) {
-            fetch('/cart')
-                .then(response => response.json())
-                .then(cartItems => {
-                    const updatedCartItems = cartItems.map(item => {
-                        if (item.productId === productId) {
-                            item.quantity = Math.max(1, item.quantity + delta); // Ilość nie może być mniejsza niż 1
-                        }
-                        return item;
-                    });
-
-                    fetch('/cart/update', {
-                        method: 'PUT',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(updatedCartItems)
-                    }).then(() => loadCart());
-                });
-        }
-
-        function removeFromCart(productId) {
-            fetch('/cart')
-                .then(response => response.json())
-                .then(cartItems => {
-                    const updatedCartItems = cartItems.filter(item => item.productId !== productId);
-
-                    fetch('/cart/update', {
-                        method: 'PUT',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(updatedCartItems)
-                    }).then(() => loadCart());
-                });
-        }
-
-        document.addEventListener('DOMContentLoaded', loadCart);
-    </script>
+    <title>Your Cart</title>
 </head>
 <body>
-<h1>Koszyk</h1>
-<table border="1">
-    <thead>
-    <tr>
-        <th>Produkt</th>
-        <th>Cena (zł)</th>
-        <th>Ilość</th>
-        <th>Łączna cena (zł)</th>
-        <th>Akcje</th>
-    </tr>
-    </thead>
-    <tbody id="cartTableBody">
-
-    </tbody>
-</table>
-<h2 id="totalPrice">Suma: 0 zł</h2>
+<h1>Your Cart</h1>
+<ul>
+    <th:block th:each="item : ${cartItems}">
+        <li th:text="'Product: ' + ${item.name} + ', Quantity: ' + ${item.quantity}"></li>
+    </th:block>
+</ul>
+<a href="/cart/add">Add More Products</a>
 </body>
 </html>
