@@ -17,17 +17,18 @@ import lombok.Data;
 public class CartItem {
     private String name;
     private int quantity;
+    private double price;
 
     public CartItem() {}
 
-    public CartItem(String name, int quantity) {
+    public CartItem(String name, int quantity, double price) {
         this.name = name;
         this.quantity = quantity;
+        this.price = price;
     }
 
 
-    public CartItem(int id, String name, double price, double weight, String category, int quantity) {
-    }
+
 
 //    public int getProductId() {
 //        return getProductId();

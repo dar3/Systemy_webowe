@@ -1,16 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Your Cart</title>
 </head>
 <body>
 <h1>Your Cart</h1>
-<ul>
-    <th:block th:each="item : ${cartItems}">
-        <li th:text="'Product: ' + ${item.name} + ', Quantity: ' + ${item.quantity}"></li>
-    </th:block>
-</ul>
-<a href="/cart/add">Add More Products</a>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Nazwa</th>
+        <th>Ilość</th>
+        <th>Cena jednostkowa</th>
+        <th>Całkowita cena</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${cartItems}">
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.quantity}"></td>
+        <td th:text="${item.price} + ' zł'"></td>
+        <td th:text="${item.quantity * item.price} + ' zł'"></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="3" style="text-align:right;">Suma:</td>
+        <td th:text="${totalSum} + ' zł'"></td>
+    </tr>
+    </tfoot>
+</table>
+
+<br>
+<a href="/cart/add">Dodaj więcej produktów</a>
+<form th:action="@{/cookies/cart/clear}" method="get" style="display:inline;">
+    <button type="submit">Wyczyść koszyk</button>
+</form>
+
 </body>
 </html>
