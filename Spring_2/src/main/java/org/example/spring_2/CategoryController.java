@@ -33,7 +33,8 @@ public class CategoryController {
 
     @PostMapping("/add")
     public String saveCategory(@ModelAttribute("category") Category category) {
-        if (categoryRepository.findByName(category.getName()) == null)
+//        if (categoryRepository.findByName(category.getName()) == null)
+        if (categoryService.findByName(category.getName()) == null)
             categoryService.add(category);
         return "redirect:/categories";
     }

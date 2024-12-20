@@ -6,4 +6,10 @@ SELECT * FROM sklep.users;
 
 -- UPDATE SKLEP.USERS SET PASSWORD = '$2a$10$ylsYyvnabBTb/9z8Khugx.kCEaZUQolAZ0vStnQBiWrmOhuqVH6xe' WHERE SKLEP.USERS.ID = 103;
 
+SELECT MAX(c.id) FROM Category c ORDER BY c.code DESC LIMIT 1;
 
+SELECT * from CATEGORY;
+
+UPDATE sklep.CATEGORY
+SET code = 'K2'
+WHERE ID = 402;

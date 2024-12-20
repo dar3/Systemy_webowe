@@ -15,3 +15,5 @@ public interface CategoryRepository extends CrudRepository<Category, Integer> {
     Category findByCode(String code);
 
 }
+
+

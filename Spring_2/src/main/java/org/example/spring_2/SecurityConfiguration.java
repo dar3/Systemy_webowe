@@ -49,7 +49,7 @@ public class SecurityConfiguration {
                         .requestMatchers("/register", "/login", "/").permitAll()
                         .requestMatchers("/categories", "/categories/**").hasAuthority("ROLE_ADMIN")
                         .requestMatchers("/products", "/products/**", "/cart", "/cart/**", "/cookies", "/cookies/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
-//                                .requestMatchers("/products").authenticated()
+                         .requestMatchers("/products").authenticated()
                         //.anyRequest().authenticated()
 
                 )

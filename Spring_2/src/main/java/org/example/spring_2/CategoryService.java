@@ -49,6 +49,10 @@ public class CategoryService {
         categoryRepository.deleteById(id);
     }
 
+    public Category findByName(String name) {
+        return categoryRepository.findByName(name);
+    }
+
     public boolean equals(final Object o) {
         if (o == this) return true;
         if (!(o instanceof CategoryService)) return false;
