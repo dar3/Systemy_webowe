@@ -1,9 +1,8 @@
 package org.example.spring_2;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Setter
@@ -37,5 +36,21 @@ public class User {
         this.username = "-";
         this.password = "-";
         this.role = "-";
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public String getUsername() {
+        return this.username;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public String getRole() {
+        return this.role;
     }
 }

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+     <meta charset="UTF-8">
+    <title>Show cookies</title>
+</head>
+<body>
+<h1>Show cookies</h1>
+<dl th:each="cookie : ${cookies}">
+     <dt th:text="${cookie.getName()}"></dt>
+     <dd th:text="${cookie.getValue()}"></dd>
+</dl>
+</body>
+</html>

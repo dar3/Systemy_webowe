@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Produkty</title>
+</head>
+<body>
+<h1>Lista produktów możliwych do dodania</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+
+        <th>Nazwa</th>
+        <th>Waga</th>
+        <th>Cena</th>
+        <th>Kategoria</th>
+        <th>Dodaj do koszyka</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.weight}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.category.name}"></td>
+        <td>
+            <form th:action="@{/cart}" method="post">
+                <input type="hidden" name="name" th:value="${product.name}">
+                <input type="hidden" name="price" th:value="${product.price}">
+                <input type="hidden" name="weight" th:value="${product.weight}">
+                <input type="hidden" name="category" th:value="${product.category.name}">
+                <label>Ilość:</label>
+                <input type="number" name="quantity" value="1" min="1" required>
+                <button type="submit">Dodaj</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<br>
+<form th:action="@{/cart}" method="get" style="display:inline;">
+    <button type="submit">Wróć do koszyka</button>
+</form>
+
+<div th:insert="~{footer :: footer}"></div>
+
+</body>
+</html>
