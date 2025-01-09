@@ -9,6 +9,7 @@ function App() {
   return (
     <>
       <Header></Header>
+      <p>These options don't work for now, but they just might work in the future!</p>
       <Footer></Footer>
     </>
   );
