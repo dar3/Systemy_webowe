@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Header></Header>
-      <p>These options don't work for now, but they just might work in the future!</p>
+      <p>These options don&apos;t work for now, but they just might work in the future!</p>
       <>
          <h1>Form and users list</h1>
          <Form />
