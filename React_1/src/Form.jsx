@@ -1,61 +1,43 @@
-import React, { useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
 
-const Form = () => {
-    const [formData, setFormData] = useState({ name: '', age: '' });
+function Form({ addUser }) {
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: name === 'age' ? Number(value) : value,
-        });
-    };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (name && age) {
+      addUser({ name, age }); // Dodanie nowego użytkownika do listy
+      setName("");
+      setAge("");
+    }
+  };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-   
-        try {
-            const response = await fetch('http://localhost:5000/submit', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData),
-            });
-   
-            if (!response.ok) {
-                const errorText = await response.text();
-                console.error('Error while sending data:', errorText);
-            } else {
-                console.log('Data sent');
-                setFormData({ name: '', age: '' });
-            }
-        } catch (error) {
-            console.error('Error while sending:', error);
-        }
-    };
-   
-
-    return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Name"
-                required
-            />
-            <input
-                type="number"
-                name="age"
-                value={formData.age}
-                onChange={handleChange}
-                placeholder="Age"
-                required
-            />
-            <button type="submit">Submit</button>
-        </form>
-    );
-};
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>
+          Name:
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+        <label>
+          Age:
+          <input
+            type="number"
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
+          />
+        </label>
+      </div>
+      <button type="submit">Add User</button>
+    </form>
+  );
+}
 
 export default Form;
