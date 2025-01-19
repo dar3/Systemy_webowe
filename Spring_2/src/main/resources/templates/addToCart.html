@@ -3,14 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <title>Produkty</title>
+    <link rel="stylesheet" th:href="@{/css/styles_addToCart.css}">
+
+    <script>
+        // Funkcja do wyświetlania alertu
+        function showAlert() {
+            alert("Pomyślnie dodano do koszyka");
+        }
+
+        // Funkcja do sprawdzania wartości ceny i wyświetlania alertu
+        function checkPrice(event) {
+            var priceValue = document.getElementById("price").value;
+            if (priceValue == 0) {
+                alert("Brak produktów spełniających wybrane kryteria");
+                // Zapobiegamy wysłaniu formularza
+                event.preventDefault();
+            }
+        }
+    </script>
 </head>
 <body>
 <h1>Lista produktów możliwych do dodania</h1>
 
+<!-- Sekcja komunikatu -->
+<div th:if="${message}" class="message">
+    <p th:text="${message}"></p>
+</div>
+
+<!-- Formularz filtrów -->
+<form th:action="@{/products/filter}" method="get" onsubmit="checkPrice(event)">
+    <h2>Kryteria wyszukiwania</h2>
+
+    <!-- Kategoria -->
+    <label for="category">Kategoria:</label>
+    <select id="category" name="category">
+        <option value="">Wszystkie</option>
+        <option value="pralki">Pralki</option>
+        <option value="suszarki">Suszarki</option>
+        <option value="piekarniki">Piekarniki</option>
+        <option value="zmywarki">Zmywarki</option>
+    </select>
+    <br><br>
+
+    <!-- Producent -->
+    <label for="brand">Producent:</label>
+    <select id="brand" name="brand">
+        <option value="">Wszyscy</option>
+        <option value="Bosch">Bosch</option>
+        <option value="Beko">Beko</option>
+        <option value="Electrolux">Electrolux</option>
+        <option value="Amica">Amica</option>
+        <option value="Samsung">Samsung</option>
+        <option value="Hisense">Hisense</option>
+    </select>
+    <br><br>
+
+    <!-- Cena -->
+    <label for="price">Cena:</label>
+    <input type="range" id="price" name="price" min="0" max="15000" step="100" oninput="priceOutput.value = this.value">
+    <output id="priceOutput">7500</output> zł
+    <br><br>
+
+    <!-- Kolor -->
+    <label for="color">Kolor:</label>
+    <select id="color" name="color">
+        <option value="">Dowolny</option>
+        <option value="biały">Biały</option>
+        <option value="czarny">Czarny</option>
+        <option value="szary">Szary</option>
+    </select>
+    <br><br>
+
+    <!-- Sortowanie -->
+    <label for="sortBy">Sortuj według:</label>
+    <select id="sortBy" name="sortBy">
+        <option value="popularność">Popularność</option>
+        <option value="cena_asc">Cena rosnąco</option>
+        <option value="cena_desc">Cena malejąco</option>
+    </select>
+    <br><br>
+
+    <!-- Wyszukiwanie -->
+    <label for="search">Szukaj:</label>
+    <input type="text" id="search" name="search" placeholder="Wpisz nazwę produktu">
+    <br><br>
+
+    <button type="submit">Filtruj</button>
+</form>
+
+<br>
+
+<!-- Tabela produktów -->
 <table border="1">
     <thead>
     <tr>
-
         <th>Nazwa</th>
         <th>Waga</th>
         <th>Cena</th>
@@ -32,7 +118,7 @@
                 <input type="hidden" name="category" th:value="${product.category.name}">
                 <label>Ilość:</label>
                 <input type="number" name="quantity" value="1" min="1" required>
-                <button type="submit">Dodaj</button>
+                <button type="submit" onclick="showAlert()">Dodaj</button>
             </form>
         </td>
     </tr>

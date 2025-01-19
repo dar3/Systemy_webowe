@@ -11,7 +11,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @Service
-public class ProductService {
+public class ProductService2 {
 
     private  final ProductRepository productRepository;
 

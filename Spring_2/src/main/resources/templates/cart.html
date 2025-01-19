@@ -5,7 +5,7 @@
     <title>Your Cart</title>
 </head>
 <body>
-<h1>Your Cart</h1>
+<h1>Twój koszyk</h1>
 
 <table border="1">
     <thead>
@@ -33,12 +33,23 @@
 </table>
 
 <br>
-<a href="/cart/add">Dodaj więcej produktów</a>
+<form th:action="@{/cart/add}" method="get" style="display:inline;">
+    <button type="submit">Dodaj więcej produktów</button>
+</form>
+
 <form th:action="@{/cookies/cart/clear}" method="get" style="display:inline;">
     <button type="submit">Wyczyść koszyk</button>
 </form>
 
-<div th:insert="~{logout_link :: logout_link}"></div>
+<form th:action="@{/cart/checkout}" method="post" style="display:inline;">
+    <button type="submit">Złóż zamówienie</button>
+</form>
+
+<br><br>
+
+<form th:action="@{/logout}" method="post" style="display:inline;">
+    <button type="submit">Wyloguj</button>
+</form>
 
 </body>
 </html>

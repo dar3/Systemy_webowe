@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Złóż zamówienie</title>
+</head>
+<body>
+<h1>Złóż zamówienie</h1>
+
+<form th:action="@{/cart/confirm}" method="post">
+    <!-- Adres dostawy -->
+    <label for="address">Adres dostawy:</label><br>
+    <textarea id="address" name="address" rows="4" cols="50" placeholder="Wpisz swój adres dostawy"></textarea><br><br>
+
+    <!-- Metoda płatności -->
+    <fieldset>
+        <legend>Wybierz metodę płatności:</legend>
+        <label>
+            <input type="radio" name="paymentMethod" value="przelew" required>
+            Przelew
+        </label><br>
+        <label>
+            <input type="radio" name="paymentMethod" value="paypal" required>
+            PayPal
+        </label>
+    </fieldset>
+    <br>
+
+    <!-- Metoda dostawy -->
+    <fieldset>
+        <legend>Wybierz metodę dostawy:</legend>
+        <label>
+            <input type="radio" name="deliveryMethod" value="kurier" required>
+            Kurier
+        </label><br>
+        <label>
+            <input type="radio" name="deliveryMethod" value="paczkomat" required>
+            Paczkomat
+        </label>
+    </fieldset>
+    <br>
+
+    <!-- Przycisk potwierdzenia -->
+    <button type="submit">Złóż zamówienie</button>
+</form>
+
+</body>
+</html>

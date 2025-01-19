@@ -83,26 +83,26 @@ public class CartService {
 //        saveCartItems(cartItems, response);
 //    }
 
-    /**
-     * Zapisuje koszyk do ciasteczek.
-     */
-    private void saveCartItems(List<CartItem> cartItems, HttpServletResponse response) {
-        String cartJson = URLEncoder.encode(new Gson().toJson(cartItems), StandardCharsets.UTF_8);
-        Cookie cartCookie = new Cookie("cart", cartJson);
-        cartCookie.setPath("/");
-        cartCookie.setHttpOnly(false);
-        cartCookie.setMaxAge(7 * 24 * 60 * 60); // Ciasteczko ważne przez 7 dni
-        response.addCookie(cartCookie);
-    }
-
-    /**
-     * Czyści koszyk.
-     */
-    public void clearCart(HttpServletResponse response) {
-        Cookie cartCookie = new Cookie("cart", "");
-        cartCookie.setPath("/");
-        cartCookie.setHttpOnly(false);
-        cartCookie.setMaxAge(0); // Ustawienie czasu ważności na 0 usuwa ciasteczko
-        response.addCookie(cartCookie);
-    }
+//    /**
+//     * Zapisuje koszyk do ciasteczek.
+//     */
+//    private void saveCartItems(List<CartItem> cartItems, HttpServletResponse response) {
+//        String cartJson = URLEncoder.encode(new Gson().toJson(cartItems), StandardCharsets.UTF_8);
+//        Cookie cartCookie = new Cookie("cart", cartJson);
+//        cartCookie.setPath("/");
+//        cartCookie.setHttpOnly(false);
+//        cartCookie.setMaxAge(7 * 24 * 60 * 60); // Ciasteczko ważne przez 7 dni
+//        response.addCookie(cartCookie);
+//    }
+//
+//    /**
+//     * Czyści koszyk.
+//     */
+//    public void clearCart(HttpServletResponse response) {
+//        Cookie cartCookie = new Cookie("cart", "");
+//        cartCookie.setPath("/");
+//        cartCookie.setHttpOnly(false);
+//        cartCookie.setMaxAge(0); // Ustawienie czasu ważności na 0 usuwa ciasteczko
+//        response.addCookie(cartCookie);
+//    }
 }

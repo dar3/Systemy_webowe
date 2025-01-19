@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @AllArgsConstructor
 @Controller
@@ -112,6 +113,31 @@ public class CartController {
             return "addToCart2"; // Plik widoku "addToCart.html" w katalogu templates
         }
 
+    @PostMapping("/cart")
+    public String addToCart(@RequestParam String name,
+                            @RequestParam int price,
+                            @RequestParam int weight,
+                            @RequestParam String category,
+                            @RequestParam int quantity,
+                            RedirectAttributes redirectAttributes) {
+        // Przykład logiki dodawania do koszyka (możesz mieć inną implementację)
+//        CartItem item = new CartItem(name, price, weight, category, quantity);
+//        cartService.addToCart(item);
+
+        // Dodanie komunikatu
+        redirectAttributes.addFlashAttribute("message", "Pomyślnie dodano produkt do koszyka!");
+
+        return "redirect:/products"; // Przekierowanie z komunikatem
+
 
     }
+
+    @PostMapping("/cart/checkout")
+    public String checkout() {
+        // Logika do przetworzenia zamówienia
+        return "checkout";  // przekierowanie na stronę checkout
+    }
+
+
+}
 
