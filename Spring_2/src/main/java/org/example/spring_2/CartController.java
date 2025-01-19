@@ -92,15 +92,6 @@ public class CartController {
     }
 
 
-//    public String getCart(HttpServletRequest request, Model model) {
-//        model.addAttribute("products", productService.findAll());
-//        Cookie[] cookies = request.getCookies();
-//        List<CartItem> cartItems = new ArrayList<>();
-//        cartItems.add(new CartItem("item1", 5));
-//        model.addAttribute("cartItems", cartItems);
-//        return "cart";
-//
-//    }
 
 
 
@@ -110,9 +101,7 @@ public class CartController {
         return "addToCart"; }
 
 
-//    public String addProductForm(Model model, HttpServletRequest request) {
-//      return "redirect:/cart/";
-//    }
+
 
 
 //    AddToCart website showing
