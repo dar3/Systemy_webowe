@@ -17,3 +17,5 @@ SELECT * from CATEGORY;
 UPDATE sklep.CATEGORY
 SET code = 'K2'
 WHERE ID = 402;
+
+select * from sklep.product;

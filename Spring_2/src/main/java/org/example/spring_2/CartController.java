@@ -107,11 +107,11 @@ public class CartController {
 
 //    AddToCart website showing
 
-        @GetMapping("/addToCart")
-        public String addToCartPage (Model model){
-            model.addAttribute("message", "You have been redirected to Add to Cart page!");
-            return "addToCart2"; // Plik widoku "addToCart.html" w katalogu templates
-        }
+    @GetMapping("/addToCart")
+    public String addToCartPage (Model model){
+        model.addAttribute("message", "You have been redirected to Add to Cart page!");
+        return "addToCart2"; // Plik widoku "addToCart.html" w katalogu templates
+    }
 
     @PostMapping("/cart")
     public String addToCart(@RequestParam String name,
@@ -140,4 +140,3 @@ public class CartController {
 
 
 }
-

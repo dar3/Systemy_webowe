@@ -85,13 +85,13 @@ public class AuthController {
         return "redirect:/login?error";
     }
 
+//    Method for development purposes
     @PostConstruct
     public void encryptPasswordOnStartup() {
         String plainPassword = "pass";
         String encryptedPassword = passwordEncoder.encode(plainPassword);
-        System.out.println("Plain password: " + plainPassword);
-        System.out.println("Encrypted password: " + encryptedPassword);
-//        $2a$10$ylsYyvnabBTb/9z8Khugx.kCEaZUQolAZ0vStnQBiWrmOhuqVH6xe
+//        System.out.println("Plain password: " + plainPassword);
+//        System.out.println("Encrypted password: " + encryptedPassword);
     }
 
 
