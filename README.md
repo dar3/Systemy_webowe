@@ -54,7 +54,7 @@ The project focuses on:
 
 - User roles and permissions concept
 - Controlled access to selected application resources
-- Separation of user responsibilities (e.g. regular user vs administrator)
+- Separation of user responsibilities (regular user vs administrator)
 
 
 ---
