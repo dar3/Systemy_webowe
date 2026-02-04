@@ -1,6 +1,6 @@
 # RTV / AGD Online Store – Spring Boot Backend
 
-Backend application for an online RTV/AGD store developed in **Java with Spring Boot**.  
+Backend application for an online RTV/AGD store developed in **Java with Spring Boot  (Spring_2 folder)**.
 The project focuses on backend architecture, database design, REST API development, and basic access control concepts.
 
 This application was created as a learning project to develop practical skills in backend development, data processing, and system design.
